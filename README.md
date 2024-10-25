@@ -2,4 +2,6 @@
 - Convert to php code
 - Add function.php
 - Add login.php
-- 
+- Add account.php
+- Add some functions are relative to account.php
+- Use "cmd" variable to manage 
