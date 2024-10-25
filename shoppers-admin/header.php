@@ -14,7 +14,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Shoppers</a>
+                <a href="index.php" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -61,6 +61,8 @@
                   </ul>
                 </li>
               </ul>
+            </li>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'account') echo 'class="active"'; ?>><a href="index.php?cmd=account">Manage Account</a>
             </li>
             <li class="has-children">
               <a href="about.html">About</a>
