@@ -31,6 +31,19 @@ function login($email,$password)
         return false;
 }
 
+function upload($filename)
+{
+    $dir = "../images/";
+    $target_file = $dir . basename($_FILES[$filename]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $newfilename = time().".".$imageFileType;
+    if (move_uploaded_file($_FILES[$filename]["tmp_name"],$dir.$newfilename))
+        return $newfilename;
+    else 
+        return  "";
+
+}
+
 function message($text,$cmd)
 {
     $_SESSION['msg']="<div class='alert alert-success'>".$text."</div>";

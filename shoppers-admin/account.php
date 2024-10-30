@@ -13,9 +13,9 @@ function add()
         INSERT INTO `account` ( `name`, `img`, `email`, `password`, `phone`) 
         VALUES  ('{$name}','{$img}','{$email}','{$password}','{$phone}')";
         if(mysqli_query($conn, $sql))
-            message('Thành Công!','anime');
+            message('Thành Công!','account');
         else
-            message('Thất bại!','anime');
+            message('Thất bại!','account');
     }
     else
     {
@@ -73,9 +73,9 @@ function edit()
         `phone`='{$phone}'
         where id=$id";
         if(mysqli_query($conn, $sql))
-            message('Thành Công!','anime');
+            message('Thành Công!','account');
         else
-            message('Thất bại!','anime');
+            message('Thất bại!','account');
     }
     else
     {
@@ -152,7 +152,7 @@ function manage()
     echo $data;
 }
 
-function delete() 
+function del() 
 {
     global $conn;
     if(isset($_GET['id']))
@@ -161,7 +161,7 @@ function delete()
         $id = 0;
 
     $sql = "delete from account where id = $id";
-    if (mysqli_query($conn,$sql)) 
+    if (mysqli_query($conn, $sql)) 
         message("Success", "account");
     else 
         message("Failed", "account");
@@ -179,7 +179,7 @@ function status()
         $sql = "update account set status = 0 where id = $id";
     else
         $sql = "update account set status = 1 where id = $id";
-    if (mysqli_query($conn,$sql)) 
+    if (mysqli_query($conn, $sql)) 
         message("Success", "account");
     else 
         message("Failed", "account");
