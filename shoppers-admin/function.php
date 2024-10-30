@@ -31,5 +31,11 @@ function login($email,$password)
         return false;
 }
 
+function message($text,$cmd)
+{
+    $_SESSION['msg']="<div class='alert alert-success'>".$text."</div>";
+    echo "<script>document.location.href='index.php?cmd=".$cmd."'</script>";
+}
+
 $conn = connect();
 ?>
