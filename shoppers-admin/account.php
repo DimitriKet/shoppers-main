@@ -20,7 +20,7 @@ function add()
     else
     {
         echo '
-        <div style="padding:1%" class="blog__details__text">
+        <div style="padding:1%">
         <form action="" method="POST" enctype="multipart/form-data">
         <p>
             <label for="name">Name</label>
