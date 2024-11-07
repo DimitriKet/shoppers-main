@@ -137,7 +137,7 @@ function manage()
         $status="<a href='index.php?cmd=category&action=status&id=".$row['id']."&status=".$row['status']."' class='btn btn-secondary'>Unlock</a>";
         $data.= "
         <tr><td>".$stt++."</td>
-            <td><img src='../img/".$row['img']."' width='30'></td>
+            <td><img src='../images/".$row['img']."' width='30'></td>
             <td>".$row['name']."</td>
           
             <td>".$row['date']."</td>
