@@ -89,7 +89,7 @@ function edit()
       <form action="" method="POST" enctype="multipart/form-data">
       <p>
           <label for="name">Name</label>
-          <input class="form-control" name="name" type="text" value="" />
+          <input class="form-control" name="name" type="text" value="'.$row['name'].'" />
       </p>
       <p>
           <label for="name">Ảnh</label>
@@ -98,11 +98,11 @@ function edit()
      
       <p>
           <label for="description">Description</label>
-          <textarea class="form-control" name="description"></textarea>
+          <textarea class="form-control" name="description">'.$row['description'].'</textarea>
       </p>
       <p>
       <label for="description">Content</label>
-          <textarea class="form-control" name="content" id="editor"></textarea>
+          <textarea class="form-control" name="content" id="editor">'.$row['content'].'</textarea>
       </p>
       <p>
           <button type="submit"class="btn btn-primary" name="sbm">Thực hiện</button>
@@ -183,14 +183,14 @@ function status()
         message("Failed", "category");
 }
 ?>
-
+        
 <section class="">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12">
                 <div class="d-flex justify-content-center gap-20 py-20">
                     <a href="index.php?cmd=category&action=add" class="btn btn-sm btn-primary">Add new Category</a>
-                    <a href="index.php?cmd=category&action=edit" class="btn btn-sm btn-secondary">Edit Info</a>
+                    <a href="index.php?cmd=category-detail" class="btn btn-sm btn-primary">View Category</a>
                     <a href="index.php?cmd=category&action=manage" class="btn btn-sm btn-primary">Manage Category</a>
                 </div>
             </div>

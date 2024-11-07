@@ -83,5 +83,19 @@
 
   <script src="js/main.js"></script>
     
+  <script src="assest/ckeditor/ckeditor.js"></script>
+
+  <script>
+    ClassicEditor
+      .create( document.querySelector( '#editor' ), {
+        // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+      } )
+      .then( editor => {
+        window.editor = editor;
+      } )
+      .catch( err => {
+        console.error( err.stack );
+      } );
+  </script>
   </body>
 </html>
