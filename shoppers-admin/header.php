@@ -64,10 +64,12 @@
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'account') echo 'class="active"'; ?>><a href="index.php?cmd=account">Manage Account</a>
             </li>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">Manage News</a>
+            </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="#">About</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
+                <li><a href="index.php?cmd=news">News</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
               </ul>
