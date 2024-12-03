@@ -192,8 +192,7 @@ function status()
             <div class="col-12">
                 <div class="d-flex justify-content-center gap-20 py-20">
                     <a href="index.php?cmd=account&action=add" class="btn btn-sm btn-primary">Add new Account</a>
-                    <a href="index.php?cmd=account&action=edit" class="btn btn-sm btn-secondary">Edit Info</a>
-                    <a href="index.php?cmd=account&action=manage" class="btn btn-sm btn-primary">Manage Account</a>
+                    <a href="index.php?cmd=account&action=manage" class="btn btn-sm btn-secondary">Manage Account</a>
                 </div>
             </div>
             <div class="col-12">

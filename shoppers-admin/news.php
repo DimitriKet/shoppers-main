@@ -129,7 +129,7 @@ function manage()
     </tr>";
     $stt=1;
     $sql='select * from news';
-    $result=mysqli_query($conn,$sql);
+    $result=mysqli_query($conn,$sql); 
     while($row=mysqli_fetch_assoc($result))
     {
         if($row['status']==1)
@@ -185,14 +185,14 @@ function status()
 }
 ?>
         
-<section class="site-section">
+<section>
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12">
                 <div class="d-flex justify-content-center gap-20 py-20">
                     <a href="index.php?cmd=news&action=add" class="btn btn-sm btn-primary">Add new News</a>
-                    <a href="index.php?cmd=news-category" class="btn btn-sm btn-primary">View News</a>
-                    <a href="index.php?cmd=news&action=manage" class="btn btn-sm btn-primary">Manage News</a>
+                    <a href="index.php?cmd=news-category" class="btn btn-sm btn-secondary">View News</a>
+                    <a href="index.php?cmd=news&action=manage" class="btn btn-sm btn-success">Manage News</a>
                 </div>
             </div>
             <div class="col-12">

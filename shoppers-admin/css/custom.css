@@ -1,23 +1,36 @@
-#news-category .left {
+
+#news .title {
+    color: #7971EA;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Mukta;
+}
+#news .subtitle {
+    color: #8C92A0;
+}
+#news .left {
     color: #222;
     /* background-color: #3A2EE0; */
 }
-#news-category .right .col-4 {
+#news .right .col-4 {
     padding-bottom: 20px;
 }
-#news-category .item .image {
+#news .right .items-news {
+    padding-top: 10px;
+}
+#news .item .image {
     overflow: hidden;
 }
-#news-category .item .image img {
+#news .item .image img {
     width: 100%; 
     transform: scale(1);
     transition: all 0.5s ease;
 }
-#news-category .item:hover .image img {
+#news .item:hover .image img {
     transform: scale(1.25);
     transition: all 0.5s ease;
 }
-#news-category .item .content {
+#news .item .content {
     position: relative;
     background-color: #fff;
     margin-top: -20px;
@@ -29,7 +42,7 @@
     flex-direction: column;
     gap: 10px;
 }
-#news-category .item .content .content__title {
+#news .item .content .content__title {
     color: #222;
     text-transform: uppercase;
     font-weight: 600;
@@ -38,11 +51,11 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
-#news-category .item .content .content__subtitle {
+#news .item .content .content__subtitle {
     display: flex;
     justify-content: center;
 }
-#news-category .item .content .content__subtitle:before {
+#news .item .content .content__subtitle:before {
     content: "";
     position: absolute;
     background-color: #7aa5bb;
@@ -51,13 +64,37 @@
     top: 50%;
     transform: translateY(-15px);
 }
-#news-category .item .content .content__subtitle span {
+#news .item .content .content__subtitle span {
     background-color: #7aa5bb;
     border-radius: 5px;
+    z-index: 10;
 }
-#news-category .item .content .content__description {
+#news .item .content .content__description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+    #news .right .items-news .item{
+        max-width: 330px;
+    }
+}
+#news.news-category .right  {
+    gap: 24px;
+}
+@media (min-width: 999px) {
+    #news.news-category .right {
+        gap: 0px;
+    }
+}
+#news.news-detail .left .title {
+    font-size: 
+}
+#news.news-detail .left .content {
+    padding-top: 20px;
+}
+#news-detail .right .items-news .item {
+    max-width: 330px;
 }
