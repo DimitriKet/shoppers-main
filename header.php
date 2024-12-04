@@ -81,7 +81,6 @@
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'category') echo 'class="active"'; ?>><a href="index.php?cmd=category">Manage Category</a>
           </ul>
         </div>
       </nav>

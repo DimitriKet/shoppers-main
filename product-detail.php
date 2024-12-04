@@ -17,8 +17,8 @@
                     $row = mysqli_fetch_assoc($result);
                 ?>
                 <div class="col-md-6">
-                  <a href="../images/<?php echo $row['img']?>" class="popup-image">
-                    <img src="../images/<?php echo $row['img']?>" alt="Image" class="img-fluid">
+                  <a href="images/<?php echo $row['img']?>" class="popup-image">
+                    <img src="images/<?php echo $row['img']?>" alt="Image" class="img-fluid">
                   </a>
                 </div>
                 <div class="col-md-6">

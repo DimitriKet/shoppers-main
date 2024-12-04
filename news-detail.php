@@ -30,7 +30,7 @@ if (isset($_GET['id']))
                         $data .= '
                         <a class="item" href="index.php?cmd=news-detail&id='.$row['id'].'">
                             <div class="image">
-                                <img src="../images/'. $row['img'].'" alt="">
+                                <img src="images/'. $row['img'].'" alt="">
                             </div>
                             <div class="content">
                                 '. $row['name'].'

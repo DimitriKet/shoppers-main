@@ -29,7 +29,7 @@
                             $data .= '
                             <tr>
                               <td class="product-thumbnail">
-                                <img src="../images/'. $row['img'].'" alt="Image" class="img-fluid">
+                                <img src="images/'. $row['img'].'" alt="Image" class="img-fluid">
                               </td>
                               <td class="product-name">
                                 <h2 class="h5 text-black">'. $row['name'].'</h2>

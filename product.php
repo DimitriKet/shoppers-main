@@ -4,6 +4,9 @@
   {
     $id = $_GET['id'];
   }
+  else {
+    $id = -1;
+  }
 ?>
     
     <div class="site-section">
@@ -94,7 +97,7 @@
                 
                 <?php
                 $data = '';
-                  $sql = "select * from product where status = 1 and (idcategory = {$id} or {$id} is null)";
+                  $sql = "select * from product where status = 1 and (idcategory = {$id} or {$id} = -1)";
                   $result = mysqli_query($conn, $sql);
                   while ($row=mysqli_fetch_assoc($result))
                   {
@@ -105,7 +108,7 @@
                           <a href="index.php?cmd=product-detail&id='. $row['id'].'"><img src="images/'.$row['img'].'" alt="Image placeholder" class="img-fluid"></a>
                         </figure>
                         <div class="block-4-text p-4">
-                          <h3><a href="shop-single.html">'.$row['name'].'</a></h3>
+                          <h3><a href="index.php?cmd=product-detail='. $row['id'].'">'.$row['name'].'</a></h3>
                           <p class="text-secondaty font-weight-bold">'. number_format($row['price']).' VND</p>
                         </div>
                       </div>

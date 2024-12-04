@@ -1,0 +1,100 @@
+
+#news .title {
+    color: #7971EA;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Mukta;
+}
+#news .subtitle {
+    color: #8C92A0;
+}
+#news .left {
+    color: #222;
+    /* background-color: #3A2EE0; */
+}
+#news .right .col-4 {
+    padding-bottom: 20px;
+}
+#news .right .items-news {
+    padding-top: 10px;
+}
+#news .item .image {
+    overflow: hidden;
+}
+#news .item .image img {
+    width: 100%; 
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+#news .item:hover .image img {
+    transform: scale(1.25);
+    transition: all 0.5s ease;
+}
+#news .item .content {
+    position: relative;
+    background-color: #fff;
+    margin-top: -20px;
+    padding: 10px 12px;
+    box-shadow: 0px 4px 8px -2px #7aa5bb;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#news .item .content .content__title {
+    color: #222;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+#news .item .content .content__subtitle {
+    display: flex;
+    justify-content: center;
+}
+#news .item .content .content__subtitle:before {
+    content: "";
+    position: absolute;
+    background-color: #7aa5bb;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform: translateY(-15px);
+}
+#news .item .content .content__subtitle span {
+    background-color: #7aa5bb;
+    border-radius: 5px;
+    z-index: 10;
+}
+#news .item .content .content__description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+    #news .right .items-news .item{
+        max-width: 330px;
+    }
+}
+#news.news-category .right  {
+    gap: 24px;
+}
+@media (min-width: 999px) {
+    #news.news-category .right {
+        gap: 0px;
+    }
+}
+#news.news-detail .left .title {
+    font-size: 
+}
+#news.news-detail .left .content {
+    padding-top: 20px;
+}
+#news-detail .right .items-news .item {
+    max-width: 330px;
+}
