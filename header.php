@@ -14,7 +14,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Shoppers</a>
+                <a href="index.php" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -22,11 +22,24 @@
               <div class="site-top-icons">
                 <ul>
                   <li><a href="#"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                  <li class="has-children">
+                    <a href="#"><span class="icon icon-heart-o"></span></a>
+                    <ul class="dropdown">
+                    </ul>
+                  </li>
+                  <li><a href="logout.php">Logout</a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="index.php?cmd=cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count">
+                        <?php 
+                          if(isset($_SESSION['cart'])):
+                            echo count($_SESSION['cart']);
+                          else:
+                            echo 0;
+                          endif;
+                        ?>
+                      </span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -41,9 +54,9 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children active">
-              <a href="index.html">Home</a>
+              <a <?php if (!isset($_GET['cmd']) || $_GET['cmd'] == 'index') echo 'class="active"'; ?> href="index.php">Home</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
+                <li><a href="#">Categories</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
                 <li class="has-children">
@@ -56,18 +69,19 @@
                 </li>
               </ul>
             </li>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'account') echo 'class="active"'; ?>><a href="index.php?cmd=product">Shop</a>
+            </li>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">News</a>
+            </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="#">About</a>
               <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
+                <li><a href="index.php?cmd=news">News</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'category') echo 'class="active"'; ?>><a href="index.php?cmd=category">Manage Category</a>
           </ul>
         </div>
       </nav>

@@ -83,5 +83,37 @@
 
   <script src="js/main.js"></script>
     
+  <script src="assest/ckeditor/ckeditor.js"></script>
+
+  <script>
+    ClassicEditor
+      .create( document.querySelector( '#editor' ), {
+        // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+      } )
+      .then( editor => {
+        window.editor = editor;
+      } )
+      .catch( err => {
+        console.error( err.stack );
+      } );
+  </script>
+
+  <script>
+    let addToCart = document.getElementById('addToCart');
+    document.getElementById('addToCart').addEventListener('click', function (e) {
+      let link = addToCart.href;
+      let qty = document.getElementById('qty').value;
+      this.href = link + "&qty=" + qty;
+      });
+
+      $(document).ready(function() {
+        $('.popup-image').magnificPopup ({
+          type: 'image',
+          gallery: {
+            enabled: true
+          }
+        });
+      });
+  </script>
   </body>
 </html>
