@@ -1,9 +1,5 @@
 <?php 
     session_start();
-    if ($_SESSION['loginstatus'] != true)
-    {
-        header('location:login.php');
-    }
     if(isset($_GET['cmd']))
         $cmd = $_GET['cmd'];
     else
