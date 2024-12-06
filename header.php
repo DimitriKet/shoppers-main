@@ -53,7 +53,7 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
+            <!-- <li class="has-children active">
               <a <?php if (!isset($_GET['cmd']) || $_GET['cmd'] == 'index') echo 'class="active"'; ?> href="index.php">Home</a>
               <ul class="dropdown">
                 <li><a href="#">Categories</a></li>
@@ -68,8 +68,9 @@
                   </ul>
                 </li>
               </ul>
-            </li>
-            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'account') echo 'class="active"'; ?>><a href="index.php?cmd=product">Shop</a>
+            </li> -->
+            <li <?php if (!isset($_GET['cmd'])) echo 'class="active"'; ?>><a href="index.php">Home</a>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'product') echo 'class="active"'; ?>><a href="index.php?cmd=product">Shop</a>
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">News</a>
             </li>
