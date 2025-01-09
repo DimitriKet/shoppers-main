@@ -68,7 +68,7 @@
                   <a href="index.php?cmd=product-detail&id='. $row['id'].'" class="item">
                     <div class="block-4 text-center">
                       <figure class="block-4-image">
-                        <img src="../images/'. $row['img'].'" alt="Image placeholder" class="img-fluid">
+                        <img src="./images/'. $row['img'].'" alt="Image placeholder" class="img-fluid">
                       </figure>
                       <div class="block-4-text p-4">
                         <h3>'. $row['name'].'</h3>

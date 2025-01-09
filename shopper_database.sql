@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2024 at 12:09 PM
+-- Generation Time: Jan 09, 2025 at 07:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -68,10 +68,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `img`, `description`, `content`, `date`, `status`) VALUES
-(2, 'Giày Cầu Lông', '1733118387.png', 'Giá từ 5,000,000 VND', '<p>Giày Cầu Lông</p>', '2024-11-01 16:17:11', 1),
-(3, 'Áo Cầu Lông', '1730959524.jfif', 'Giá từ 500,000 VND', '<p>Áo Cầu Lông</p>', '2024-11-01 16:27:08', 1),
-(0, 'Vợt cầu lông', '1730959611.jfif', 'Giá chỉ từ 1.500.000 VNĐ', '<p>Vợt cầu lông giá rẻ</p>', '2024-11-06 19:25:13', 1),
-(4, 'Phụ kiện Cầu Lông', '1733070928.webp', 'Phụ kiện cầu lông chính hãng, bảo vệ và hỗ trợ các vợt thủ.', '<p>Phụ kiện cầu lông</p>', '2024-12-01 16:00:00', 1);
+(0, 'Vợt cầu lông', '1730959611.jfif', 'Price starting from 1,500,000 VND', '<p>Affordable badminton rackets</p>', '2024-11-06 19:25:13', 1),
+(2, 'Giày Cầu Lông', '1733118387.png', 'Price starting from 5,000,000 VND', '<p>Badminton shoes</p>', '2024-11-01 16:17:11', 1),
+(3, 'Áo Cầu Lông', '1730959524.jfif', 'Price starting from 500,000 VND', '<p>Badminton shirts</p>', '2024-11-01 16:27:08', 1),
+(4, 'Phụ kiện Cầu Lông', '1733070928.webp', 'Official badminton accessories to protect and support players.', '<p>Badminton accessories</p>', '2024-12-01 16:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ INSERT INTO `news` (`id`, `name`, `img`, `description`, `content`, `date`, `stat
 
 CREATE TABLE `product` (
   `id` int(5) UNSIGNED NOT NULL,
-  `idcategory` int(5) NOT NULL,
+  `idcategory` int(5) UNSIGNED NOT NULL,
   `name` varchar(64) NOT NULL,
   `img` varchar(100) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
@@ -121,19 +121,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `idcategory`, `name`, `img`, `description`, `discount`, `price`, `content`, `date`, `status`) VALUES
-(1, 0, 'Vợt cầu lông Yonex Voltric Z Force II', 'yonex_z_force_ii.webp', 'Vợt cầu lông Yonex Voltric Z Force II, thiết kế mạnh mẽ, phù hợp cho các game thủ chuyên nghiệp. Cân bằng giữa tốc độ và kiểm soát.', 10, '2000000', 'Vợt cầu lông Yonex Voltric Z Force II với thiết kế hiện đại, được nhiều vận động viên chuyên nghiệp ưa chuộng. Thích hợp cho những pha tấn công mạnh mẽ.', '2024-11-30 16:02:14', 1),
-(2, 0, 'Vợt cầu lông Victor Brave Sword 12', 'victor_brave_sword_12.jpg', 'Vợt cầu lông Victor Brave Sword 12, thiết kế nhẹ, dễ dàng kiểm soát, phù hợp cho những pha đánh cầu chính xác.', 5, '1500000', 'Victor Brave Sword 12 là lựa chọn lý tưởng cho những ai yêu thích sự linh hoạt và kiểm soát trong trận đấu. Thiết kế nhẹ giúp dễ dàng di chuyển và tấn công.', '2024-11-30 16:02:14', 1),
-(3, 0, 'Vợt cầu lông Li-Ning N9ii', 'li_ning_n9ii.jpg', 'Vợt cầu lông Li-Ning N9ii nổi bật với độ bền cao, thiết kế đặc biệt giúp giảm thiểu độ rung khi đánh.', 15, '1800000', 'Li-Ning N9ii có khả năng chống rung tốt, giúp người chơi duy trì sự ổn định trong suốt trận đấu. Đây là một trong những vợt được yêu thích tại các giải đấu.', '2024-11-30 16:02:14', 1),
-(4, 0, 'Vợt cầu lông Yonex Astrox 99', 'yonex_astrox_99.jpg', 'Vợt cầu lông Yonex Astrox 99 với công nghệ Rotational Generator System giúp người chơi tấn công mạnh mẽ hơn.', 12, '2500000', 'Yonex Astrox 99 là vợt hàng đầu với khả năng tấn công mạnh mẽ và dễ dàng điều khiển. Dành cho các vận động viên muốn nâng cao hiệu suất thi đấu.', '2024-11-30 16:02:14', 1),
-(5, 0, 'Vợt cầu lông Li-Ning Turbo Charging 75', 'li_ning_turbo_charging_75.png', 'Vợt Li-Ning Turbo Charging 75 với sức mạnh tấn công vượt trội, hỗ trợ tối đa cho các game thủ khi chơi ở tốc độ cao.', 20, '2200000', 'Li-Ning Turbo Charging 75 có công nghệ Turbo Charging, giúp vợt tăng cường khả năng tấn công nhanh và mạnh, đem đến cho người chơi cảm giác mạnh mẽ trong mỗi cú đánh.', '2024-11-30 16:02:14', 1),
-(6, 0, 'Vợt cầu lông Victor Auraspeed 90S', 'victor_auraspeed_90s.jpg', 'Vợt cầu lông Victor Auraspeed 90S, nhẹ và linh hoạt, lý tưởng cho những pha đánh cầu tốc độ cao và những cú đập mạnh.', 8, '2100000', 'Victor Auraspeed 90S mang lại sự cân bằng tuyệt vời giữa tốc độ và kiểm soát, thích hợp cho các game thủ yêu thích các pha cầu nhanh và mạnh mẽ.', '2024-11-30 16:02:14', 1),
-(7, 0, 'Vợt cầu lông Yonex Duora 10', 'yonex_duora_10.webp', 'Vợt Yonex Duora 10 với thiết kế đối xứng, tối ưu cho cả hai mặt vợt, hỗ trợ tốt cho những pha cầu tấn công và phòng thủ.', 10, '2300000', 'Yonex Duora 10 là vợt cầu lông cao cấp với thiết kế đối xứng đặc biệt, giúp người chơi dễ dàng thực hiện cả các cú đánh tấn công lẫn phòng thủ một cách hiệu quả.', '2024-11-30 16:02:14', 1),
-(8, 0, 'Vợt cầu lông Yonex Nanoray 900', 'yonex_nanoray_900.webp', 'Vợt cầu lông Yonex Nanoray 900 với độ cứng cao, phù hợp cho các game thủ thích tấn công với tốc độ cực nhanh.', 7, '1600000', 'Vợt Yonex Nanoray 900 được thiết kế để cung cấp tốc độ tối đa trong mỗi cú đánh. Với độ cứng cao, đây là sự lựa chọn tuyệt vời cho những người yêu thích tốc độ.', '2024-11-30 16:02:14', 1),
-(9, 0, 'Vợt cầu lông Li-Ning Super Series 90', 'li_ning_super_series_90.jpg', 'Vợt cầu lông Li-Ning Super Series 90, thiết kế đặc biệt cho người chơi chuyên nghiệp với khả năng điều khiển tuyệt vời.', 25, '2700000', 'Li-Ning Super Series 90 là lựa chọn lý tưởng cho những game thủ chuyên nghiệp, với khả năng kiểm soát vượt trội và sức mạnh tấn công ấn tượng.', '2024-11-30 16:02:14', 1),
-(10, 0, 'Vợt cầu lông Mizuno Fortius 1000', 'mizuno_fortius_1000.jpg', 'Vợt cầu lông Mizuno Fortius 1000, với thiết kế tối ưu cho những pha đánh cầu mạnh mẽ và chính xác.', 5, '1900000', 'Mizuno Fortius 1000 giúp người chơi dễ dàng kiểm soát từng cú đánh, đồng thời hỗ trợ những cú đập mạnh mẽ và chính xác trong mọi tình huống.', '2024-11-30 16:02:14', 1),
-(11, 3, 'Áo cầu lông Yonex Professional', 'yonex_professional_shirt.jpg', 'Áo cầu lông Yonex Professional, thiết kế thoáng mát và thoải mái cho vận động viên.', 10, '700000', 'Áo Yonex Professional giúp người chơi dễ dàng vận động, thoáng mát và nhanh khô, phù hợp cho các trận đấu dài.', '2024-11-30 16:02:14', 1),
-(12, 4, 'Dây đeo vợt cầu lông Yonex', 'yonex_racket_strap.webp', 'Dây đeo vợt Yonex giúp bảo vệ và giữ vợt luôn ở tình trạng tốt.', 10, '200000', 'Dây đeo vợt Yonex chất liệu cao cấp, giúp bảo vệ vợt khi di chuyển và thuận tiện khi mang theo.', '2024-12-01 16:00:00', 1),
-(15, 2, 'Giày cầu lông Victor Auraspeed 90S', 'victor_auraspeed_90s_shoes.jpg', 'Giày cầu lông Victor Auraspeed 90S với thiết kế nhẹ và thoải mái, tối ưu cho các pha di chuyển nhanh.', 15, '3000000', 'Giày Victor Auraspeed 90S cung cấp sự ổn định và hỗ trợ cho các game thủ yêu thích di chuyển nhanh và linh hoạt.', '2024-11-30 16:02:14', 1);
+(1, 0, 'Yonex Voltric Z Force II Badminton Racket', 'yonex_z_force_ii.webp', 'Yonex Voltric Z Force II badminton racket, powerful design, suitable for professional players. Balanced between speed and control.', 10, '2000000', 'The Yonex Voltric Z Force II badminton racket features a modern design, perfect for professional athletes. Ideal for powerful attacks.', '2024-11-30 16:02:14', 1),
+(2, 0, 'Victor Brave Sword 12 Badminton Racket', 'victor_brave_sword_12.jpg', 'Victor Brave Sword 12 badminton racket, lightweight design, easy to control, suitable for precise shots.', 5, '1500000', 'Victor Brave Sword 12 is the ideal choice for those who love flexibility and control in matches. Its lightweight design ensures easy movement and attacks.', '2024-11-30 16:02:14', 1),
+(3, 0, 'Li-Ning N9ii Badminton Racket', 'li_ning_n9ii.jpg', 'Li-Ning N9ii badminton racket, known for its high durability and special design to minimize vibrations during play.', 15, '1800000', 'Li-Ning N9ii offers excellent anti-vibration properties, helping players maintain stability throughout the game. A favorite in competitions.', '2024-11-30 16:02:14', 1),
+(4, 0, 'Yonex Astrox 99 Badminton Racket', 'yonex_astrox_99.jpg', 'Yonex Astrox 99 badminton racket with Rotational Generator System technology helps players achieve stronger attacks.', 12, '2500000', 'Yonex Astrox 99 is a top-tier racket with powerful attacking capabilities and easy handling. Designed for players aiming to enhance their performance.', '2024-11-30 16:02:14', 1),
+(5, 0, 'Li-Ning Turbo Charging 75 Badminton Racket', 'li_ning_turbo_charging_75.png', 'Li-Ning Turbo Charging 75 badminton racket offers exceptional attacking power, optimized for high-speed gameplay.', 20, '2200000', 'The Li-Ning Turbo Charging 75 badminton racket uses Turbo Charging technology to boost attack speed and power, delivering a strong feel in every strike.', '2024-11-30 16:02:14', 1),
+(6, 0, 'Victor Auraspeed 90S Badminton Racket', 'victor_auraspeed_90s.jpg', 'Victor Auraspeed 90S badminton racket, lightweight and flexible, ideal for high-speed rallies and powerful smashes.', 8, '2100000', 'Victor Auraspeed 90S provides an excellent balance between speed and control, ideal for players who enjoy fast and powerful rallies.', '2024-11-30 16:02:14', 1),
+(7, 0, 'Yonex Duora 10 Badminton Racket', 'yonex_duora_10.webp', 'Yonex Duora 10 badminton racket, symmetrical design, optimized for both offensive and defensive shots.', 10, '2300000', 'Yonex Duora 10 is a high-end badminton racket with a unique symmetrical design, enabling players to perform both offensive and defensive shots effectively.', '2024-11-30 16:02:14', 1),
+(8, 0, 'Yonex Nanoray 900 Badminton Racket', 'yonex_nanoray_900.webp', 'Yonex Nanoray 900 badminton racket with high stiffness, suitable for players who prefer extremely fast attacks.', 7, '1600000', 'Yonex Nanoray 900 is designed to maximize speed in every shot. With high stiffness, it is an excellent choice for those who love speed.', '2024-11-30 16:02:14', 1),
+(9, 0, 'Li-Ning Super Series 90 Badminton Racket', 'li_ning_super_series_90.jpg', 'Li-Ning Super Series 90 badminton racket, specially designed for professional players with excellent control capabilities.', 25, '2700000', 'Li-Ning Super Series 90 is the perfect choice for professional players, with superior control and impressive attacking power.', '2024-11-30 16:02:14', 1),
+(10, 0, 'Mizuno Fortius 1000 Badminton Racket', 'mizuno_fortius_1000.jpg', 'Mizuno Fortius 1000 badminton racket, optimized for powerful and precise shots.', 5, '1900000', 'Mizuno Fortius 1000 helps players easily control every shot while supporting powerful and accurate smashes in all situations.', '2024-11-30 16:02:14', 1),
+(11, 3, 'Yonex Professional Badminton Shirt', 'yonex_professional_shirt.jpg', 'Yonex Professional badminton shirt, designed to be breathable and comfortable for athletes.', 10, '700000', 'Yonex Professional badminton shirt ensures easy movement, breathability, and quick-drying, perfect for long matches.', '2024-11-30 16:02:14', 1),
+(12, 4, 'Yonex Racket Strap', 'yonex_racket_strap.webp', 'Yonex racket strap helps protect and keep the racket in good condition.', 10, '200000', 'Yonex racket strap is made of high-quality material, protecting your racket during transport and making it easy to carry.', '2024-12-01 16:00:00', 1),
+(15, 2, 'Victor Auraspeed 90S Badminton Shoes', 'victor_auraspeed_90s_shoes.jpg', 'Victor Auraspeed 90S badminton shoes with a lightweight and comfortable design, optimized for quick movements.', 15, '3000000', 'Victor Auraspeed 90S badminton shoes provide stability and support for players who love quick and agile movements.', '2024-11-30 16:02:14', 1);
 
 --
 -- Indexes for dumped tables
@@ -146,6 +146,12 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
@@ -155,7 +161,8 @@ ALTER TABLE `news`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_product_category` (`idcategory`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -178,6 +185,16 @@ ALTER TABLE `news`
 --
 ALTER TABLE `product`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `fk_product_category` FOREIGN KEY (`idcategory`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
