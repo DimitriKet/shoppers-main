@@ -1,7 +1,36 @@
 <?php
+  
+  if (isset($_POST['update'])) {
+    if (!empty($_SESSION['cart'])) {
+      $updates = $_POST['updates'];
+      foreach ($updates as $update) {
+        $upid = $update['upid'];
+        $qty = (int)$update['qty'];
+
+        if (isset($_SESSION['cart'][$upid])) {
+            if ($qty > 0) {
+                $_SESSION['cart'][$upid]['qty'] = $qty;
+            } else {
+                unset($_SESSION['cart'][$upid]);
+            }
+        }
+      }
+    }
+  }
+  elseif(isset($_POST['delete']))
+  {
+    $upid = $_POST['delete'];
+    if (isset($_SESSION['cart'][$upid]))
+      unset($_SESSION['cart'][$upid]);
+  }
+  elseif(isset($_POST['empty']))
+  {
+      unset($_SESSION['cart']);
+  }
+
   $subTotal = 0; 
 ?>
-    <div class="site-section">
+    <div class="site-section <?php if (empty($_SESSION['cart'])) echo "d-none"; ?> ">
       <div class="container">
         <div class="row mb-5">
           <form class="col-md-12" method="post">
@@ -18,45 +47,53 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        if(isset($_SESSION['cart'])):
-                          
-                          $data = '';
-                          foreach($_SESSION['cart'] as $cart):
-                            $sql="select * from product where id=" .$cart['id_product'];
-                            $result = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($result);
-                            $data .= '
-                            <tr>
-                              <td class="product-thumbnail">
-                                <img src="images/'. $row['img'].'" alt="Image" class="img-fluid">
-                              </td>
-                              <td class="product-name">
-                                <h2 class="h5 text-black">'. $row['name'].'</h2>
-                              </td>
-                              <td>'. number_format($row['price']).' VND</td>
-                              <td>
-                                <div class="input-group mb-3" style="max-width: 120px;">
-                                  <div class="input-group-prepend">
-                                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                                  </div>
-                                  <input type="text" class="form-control text-center" value="'. $cart['qty'].'" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                  <div class="input-group-append">
-                                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                                  </div>
-                                </div>
-
-                              </td>
-                              <td>'. number_format($row['price'] * $cart['qty']).' VND</td>
-                              <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                            </tr>';
-                            $subTotal += $row['price'] * $cart['qty'];
-                          endforeach;
-                          echo $data;
-                        endif;
-                    ?>
+                  <?php
+                  if (isset($_SESSION['cart'])):
+                    $data = '';
+                    $subTotal = 0;
+                    foreach ($_SESSION['cart'] as $key => $cart):
+                      $sql = "SELECT * FROM product WHERE id=" . $cart['id_product'];
+                      $result = mysqli_query($conn, $sql);
+                      $row = mysqli_fetch_assoc($result);
+                      $data .= '
+                      <tr>
+                        <td class="product-thumbnail">
+                          <img src="images/' . $row['img'] . '" alt="Image" class="img-fluid">
+                        </td>
+                        <td class="product-name">
+                          <h2 class="h5 text-black">' . $row['name'] . '</h2>
+                        </td>
+                        <td>' . number_format($row['price']) . ' VND</td>
+                        <td>
+                          <div class="input-group mb-3" style="max-width: 120px;">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                            </div>
+                            <input type="hidden" name="updates[' . $key . '][upid]" value="' . $cart['id_product'] . '">
+                            <input type="text" name="updates[' . $key . '][qty]" class="form-control text-center" value="' . $cart['qty'] . '" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                            </div>
+                          </div>
+                        </td>
+                        <td>' . number_format($row['price'] * $cart['qty']) . ' VND</td>
+                        <td><button class="btn btn-primary btn-sm" type="submit" name="delete" value="' . $cart['id_product'] . '">X</button></td>
+                      </tr>';
+                      $subTotal += $row['price'] * $cart['qty'];
+                    endforeach;
+                    echo $data;
+                  endif;
+                  ?>
                 </tbody>
               </table>
+            </div>
+            <div class="row mb-5">
+              <div class="col-md-3 mb-3 mb-md-0">
+                <button class="btn btn-outline-primary btn-sm btn-block" name="update" type="submit">Update Cart</button>
+              </div>
+              <div class="col-md-3 mb-3 mb-md-0">
+                <button class="btn btn-primary btn-sm btn-block" name="empty" type="submit">Empty Cart</button>
+              </div>
             </div>
           </form>
         </div>
@@ -64,11 +101,8 @@
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-5">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
-              </div>
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                <a class="btn btn-outline-primary btn-sm btn-block" href="index.php?cmd=product">Continue Shopping</a>
               </div>
             </div>
             <div class="row">
@@ -111,7 +145,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='index.php?cmd=checkout'">Proceed To Checkout</button>
                   </div>
                 </div>
               </div>

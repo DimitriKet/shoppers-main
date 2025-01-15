@@ -18,13 +18,20 @@
               <div class="border p-4 rounded mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
                 <ul class="list-unstyled mb-0">
-                  <li class="mb-1"><a href="index.php?cmd=product&id=0" class="d-flex"><span>Vợt Cầu Lông</span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                  <li class="mb-1"><a href="index.php?cmd=product&id=2" class="d-flex"><span>Giày Cầu Lông</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                  <li class="mb-1"><a href="index.php?cmd=product&id=3" class="d-flex"><span>Áo Cầu Lông</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                <?php
+                $data = "";
+                $sql='select * from category';
+                $result=mysqli_query($conn,$sql);
+                while($row=mysqli_fetch_assoc($result)) :
+                  $data .= '
+                  <li class="mb-1"><a href="index.php?cmd=product&id='.$row['id'].'" class="d-flex"><span>'.$row['name'].'</span> <span class="text-black ml-auto">(2,220)</span></a></li>';
+                endwhile;
+                echo $data;
+                ?>
                 </ul>
               </div>
 
-              <div class="border p-4 rounded mb-4">
+              <!-- <div class="border p-4 rounded mb-4">
                 <div class="mb-4">
                   <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
                   <div id="slider-range" class="border-primary"></div>
@@ -60,7 +67,7 @@
                   </a>
                 </div>
 
-              </div>
+              </div> -->
             </div>
 
             <div class="col-md-9 order-2">
@@ -74,9 +81,9 @@
                         Latest
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <a class="dropdown-item" href="#">Giày Cầu Lông</a>
-                        <a class="dropdown-item" href="#">Áo Cầu Lông</a>
-                        <a class="dropdown-item" href="#">Vợt Cầu Lông</a>
+                        <a class="dropdown-item" href="index.php?cmd=product&id=0">Badminton Racquet</a>
+                        <a class="dropdown-item" href="index.php?cmd=product&id=0">Tshirt</a>
+                        <a class="dropdown-item" href="#">Shoes</a>
                       </div>
                     </div>
                     <div class="btn-group">

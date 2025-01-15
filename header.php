@@ -25,12 +25,14 @@
                   <li class="has-children">
                     <a href="#"><span class="icon icon-person"></span></a>
                     <ul class="dropdown">
-                      <li><a href="logout.php">Logout</a></li>
+                      <li><a href="logout.php">Login</a></li>
+                      <li><a href="logout.php"></a></li>
                     </ul>
                   </li>
                   
                   <li>
-                    <a href="index.php?cmd=cart" class="site-cart">
+                    <a href="index.php?cmd=<?php if (empty($_SESSION['cart'])) echo "cart-none";
+                    else echo "cart"; ?>" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">
                         <?php 
@@ -76,6 +78,7 @@
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">News</a>
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'about') echo 'class="active"'; ?>><a href="index.php?cmd=about">About Us</a>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'contact') echo 'class="active"'; ?>><a href="index.php?cmd=contact">Contact</a>
           </ul>
         </div>
       </nav>

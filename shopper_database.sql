@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2025 at 07:53 PM
+-- Generation Time: Jan 15, 2025 at 07:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -68,10 +68,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `img`, `description`, `content`, `date`, `status`) VALUES
-(0, 'Vợt cầu lông', '1730959611.jfif', 'Price starting from 1,500,000 VND', '<p>Affordable badminton rackets</p>', '2024-11-06 19:25:13', 1),
-(2, 'Giày Cầu Lông', '1733118387.png', 'Price starting from 5,000,000 VND', '<p>Badminton shoes</p>', '2024-11-01 16:17:11', 1),
-(3, 'Áo Cầu Lông', '1730959524.jfif', 'Price starting from 500,000 VND', '<p>Badminton shirts</p>', '2024-11-01 16:27:08', 1),
-(4, 'Phụ kiện Cầu Lông', '1733070928.webp', 'Official badminton accessories to protect and support players.', '<p>Badminton accessories</p>', '2024-12-01 16:00:00', 1);
+(0, 'Badminton Rackets', '1730959611.jfif', 'Prices start at 1,500,000 VND', '<p>Affordable badminton rackets</p>', '2024-11-06 19:25:13', 1),
+(2, 'Badminton Shoes', '1733118387.png', 'Prices start at 5,000,000 VND', '<p>Badminton shoes</p>', '2024-11-01 16:17:11', 1),
+(3, 'Badminton Shirts', '1730959524.jfif', 'Prices start at 500,000 VND', '<p>Badminton shirts</p>', '2024-11-01 16:27:08', 1),
+(4, 'Badminton Accessories', '1733070928.webp', 'Official badminton accessories to protect and support players.', '<p>Badminton accessories</p>', '2024-12-01 16:00:00', 1);
 
 -- --------------------------------------------------------
 
