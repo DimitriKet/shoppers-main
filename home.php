@@ -8,11 +8,11 @@
       $id = 0;
 ?>
 
-<div class="site-blocks-cover" style="background-image: url(images/astrox88-sd-key-visual-2880x1120-_1718650445.webp);" data-aos="fade">
+<div class="site-blocks-cover" style="background-image: url(images/halbertec-serise-banner.jpg);" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2">Finding Your Badminton Racquet</h1>
+            <h1 class="mb-2" style="color: #fff;">Finding Your Badminton Racquet</h1>
             <div class="intro-text text-center text-md-left">
               <p class="mb-4">I just wanna tell you how I'm feeling
               Gotta make you understand. Never gonna give you up,
@@ -149,12 +149,12 @@
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="#"><img src="images/SAFERUN-AERUS-MEN.webp" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
             <h2><a href="#">50% less in all items</a></h2>
             <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
+            <p>Yonex running shoes are designed to help non-runners train in good form while preventing injuries. With our expertise in graphite applied to running shoes, every step, whether from heel-to-toe or midfoot-to-toe, will comfortably propel you forward for more efficient, effective and safe training.</p>
             <p><a href="index.php?cmd=product" class="btn btn-sm btn-primary">Shop Now</a></p>
           </div>
         </div>
