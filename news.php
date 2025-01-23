@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="left col-12 col-md-3">
-                <div class="title">Danh mục tin tức</div>
+                <div class="title">Latest Stories</div>
             </div>
             <div class="right col-12 col-md-9 row">
             <?php

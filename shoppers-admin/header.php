@@ -53,33 +53,10 @@
       <nav class="site-navigation text-right text-md-center" role="navigation">
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
-              <a <?php if (!isset($_GET['cmd']) || $_GET['cmd'] == 'index') echo 'class="active"'; ?> href="index.php">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
+            <li <?php if (!isset($_GET['cmd'])) echo 'class="active"'; ?>><a href="index.php">Home</a>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'account') echo 'class="active"'; ?>><a href="index.php?cmd=account">Manage Account</a>
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">Manage News</a>
-            </li>
-            <li class="has-children">
-              <a href="#">About</a>
-              <ul class="dropdown">
-                <li><a href="index.php?cmd=news">News</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'category') echo 'class="active"'; ?>><a href="index.php?cmd=category">Manage Category</a>
           </ul>

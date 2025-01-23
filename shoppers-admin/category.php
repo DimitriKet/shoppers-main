@@ -141,8 +141,8 @@ function manage()
             <td>".$row['name']."</td>
           
             <td>".$row['date']."</td>
-            <td><a href='index.php?cmd=category&action=edit&id=".$row['id']."' class='btn btn-warning'>Sửa</a></td>
-            <td><a href='index.php?cmd=category&action=del&id=".$row['id']."' class='btn btn-danger'>Xóa</a></td>
+            <td><a href='index.php?cmd=category&action=edit&id=".$row['id']."' class='btn btn-warning'>Edit</a></td>
+            <td><a href='index.php?cmd=category&action=del&id=".$row['id']."' class='btn btn-danger'>Delete</a></td>
             <td>".$status."</td>
         </tr>";
     }

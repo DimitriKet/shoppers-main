@@ -27,7 +27,7 @@ function add()
           <input class="form-control" name="name" type="text" value="" />
       </p>
       <p>
-          <label for="name">Ảnh</label>
+          <label for="name">Image</label>
           <input class="form-control" name="img"  type="file" />
       </p>
      
@@ -93,7 +93,7 @@ function edit()
           <input class="form-control" name="name" type="text" value="'.$row['name'].'" />
       </p>
       <p>
-          <label for="name">Ảnh</label>
+          <label for="name">Image</label>
           <input class="form-control" name="img"  type="file" />
       </p>
      
@@ -120,12 +120,12 @@ function manage()
     "<table class='table' style='color:#7971ea;'>
     <tr class='text-weight'>
         <td>STT</td>
-        <td>Ảnh</td>
-        <td>Tên</td>
+        <td>Image</td>
+        <td>Name</td>
         <td>Date</td>
         <td>Edit</td>
-        <td>Xóa</td>
-        <td>Khóa</td>
+        <td>Delete</td>
+        <td>Status</td>
     </tr>";
     $stt=1;
     $sql='select * from news';
@@ -142,8 +142,8 @@ function manage()
             <td>".$row['name']."</td>
           
             <td>".$row['date']."</td>
-            <td><a href='index.php?cmd=news&action=edit&id=".$row['id']."' class='btn btn-warning'>Sửa</a></td>
-            <td><a href='index.php?cmd=news&action=del&id=".$row['id']."' class='btn btn-danger'>Xóa</a></td>
+            <td><a href='index.php?cmd=news&action=edit&id=".$row['id']."' class='btn btn-warning'>Edit</a></td>
+            <td><a href='index.php?cmd=news&action=del&id=".$row['id']."' class='btn btn-danger'>Delete</a></td>
             <td>".$status."</td>
         </tr>";
     }
