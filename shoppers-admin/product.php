@@ -129,6 +129,7 @@ function view() {
                 </figure>
                 <div class="block-4-text p-4">
                 <h3><a href="#">'.$row['name'].'</a></h3>
+                <p class="text-secondaty font-weight-bold">'. number_format($row['price']).' VND</p>
                 </div>
             </div>
         </div>';
