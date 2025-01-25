@@ -112,6 +112,31 @@ function edit()
     }
 }
 
+function view() {
+
+    global $conn;
+    $data = '<div class="row">';
+    $sql = "select * from category";
+    $result = mysqli_query($conn, $sql);
+    while ($row=mysqli_fetch_assoc($result))
+    {
+        $data .= '
+        <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+            <div class="block-4 text-center border">
+                <figure class="block-4-image">
+                <a href="#"><img src="../images/'.$row['img'].'" alt="Image placeholder" class="img-fluid"></a>
+                </figure>
+                <div class="block-4-text p-4">
+                <h3><a href="#">'.$row['name'].'</a></h3>
+                <p class="text-secondaty font-weight-bold">'. number_format($row['price']).' VND</p>
+                </div>
+            </div>
+        </div>';
+    }
+    $data .= '</div>';
+    echo $data;
+}
+
 function manage()
 {
     global $conn;
@@ -190,7 +215,7 @@ function status()
             <div class="col-12">
                 <div class="d-flex justify-content-center gap-20 py-20">
                     <a href="index.php?cmd=category&action=add" class="btn btn-sm btn-primary">Add new Category</a>
-                    <a href="index.php?cmd=category-detail" class="btn btn-sm btn-primary">View Category</a>
+                    <a href="index.php?cmd=category&action=view" class="btn btn-sm btn-primary">View Category</a>
                     <a href="index.php?cmd=category&action=manage" class="btn btn-sm btn-primary">Manage Category</a>
                 </div>
             </div>
@@ -204,6 +229,7 @@ function status()
             switch($action)
             {
                 case 'edit': edit(); break;
+                case 'view': view(); break;
                 case 'status': status(); break;
                 case 'add': add(); break;
                 case 'del': del(); break;

@@ -59,6 +59,7 @@
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'news') echo 'class="active"'; ?>><a href="index.php?cmd=news">Manage News</a>
             </li>
             <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'category') echo 'class="active"'; ?>><a href="index.php?cmd=category">Manage Category</a>
+            <li <?php if (isset($_GET['cmd']) && $_GET['cmd'] == 'product') echo 'class="active"'; ?>><a href="index.php?cmd=product">Manage Product</a>
           </ul>
         </div>
       </nav>
