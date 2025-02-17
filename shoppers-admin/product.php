@@ -8,10 +8,11 @@ function add()
       $img=upload('img');
       $name=$_POST['name'];
       $description=$_POST['description'];
+      $price=$_POST['price'];
       $content=$_POST['content'];
       $sql="
-      INSERT INTO `product` ( `name`, `img`,  `description`, `content`) 
-      VALUES  ('{$name}','{$img}','{$description}','{$content}')";
+      INSERT INTO `product` ( `name`, `img`,  `description`, `price` `content`) 
+      VALUES  ('{$name}','{$img}','{$description}', '{$price}', '{$content}')";
         if(mysqli_query($conn, $sql))
             message('Thành Công!','product');
         else
@@ -31,6 +32,10 @@ function add()
           <input class="form-control" name="img"  type="file" />
       </p>
      
+      <p>
+          <label for="price">Price</label>
+          <input class="form-control" name="price" type="text" value="" />
+      </p>
       <p>
           <label for="description">Description</label>
           <textarea class="form-control" name="description"></textarea>
@@ -59,6 +64,7 @@ function edit()
       $img=upload('img');
       $name=$_POST['name'];
       $description=$_POST['description'];
+      $price=$_POST['price'];
       $content=$_POST['content'];
       if($img!='')
           $sql="
@@ -66,6 +72,7 @@ function edit()
           `name`='{$name}',
           `img`='{$img}',
           `description`='{$description}',
+          `price`='{$price}',
           `content`='{$content}'
           where id=$id";
       else
@@ -73,6 +80,7 @@ function edit()
           update product set 
           `name`='{$name}',
           `description`='{$description}',
+          `price`='{$price}',
           `content`='{$content}'
           where id=$id";
         if(mysqli_query($conn, $sql))
@@ -95,6 +103,10 @@ function edit()
       <p>
           <label for="name">Image</label>
           <input class="form-control" name="img"  type="file" />
+      </p>
+      <p>
+          <label for="price">Price</label>
+          <input class="form-control" name="price" type="text" value="'.$row['price'].'" />
       </p>
      
       <p>
