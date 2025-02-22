@@ -43,8 +43,8 @@
                         Latest
                       </button>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <a class="dropdown-item" href="index.php?cmd=product&id=0">Badminton Racquet</a>
-                        <a class="dropdown-item" href="index.php?cmd=product&id=0">Tshirt</a>
+                        <a class="dropdown-item" href="index.php?cmd=product&id=1">Badminton Racquet</a>
+                        <a class="dropdown-item" href="index.php?cmd=product&id=3">Tshirt</a>
                         <a class="dropdown-item" href="#">Shoes</a>
                       </div>
                     </div>
@@ -66,7 +66,7 @@
                 
                 <?php
                 $data = '';
-                  $sql = "select * from product where status = 1 and (idcategory = {$id} or {$id} = -1)";
+                  $sql = "select * from product where status = 1 and idcategory = {$id}";
                   $result = mysqli_query($conn, $sql);
                   while ($row=mysqli_fetch_assoc($result))
                   {
