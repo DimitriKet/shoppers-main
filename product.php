@@ -66,7 +66,10 @@
                 
                 <?php
                 $data = '';
-                  $sql = "select * from product where status = 1 and idcategory = {$id}";
+                  if ($id != -1)
+                    $sql = "select * from product where status = 1 and idcategory = {$id}";
+                  else
+                    $sql = "select * from product where status = 1";
                   $result = mysqli_query($conn, $sql);
                   while ($row=mysqli_fetch_assoc($result))
                   {
