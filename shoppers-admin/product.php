@@ -8,15 +8,29 @@ function add()
       $img=upload('img');
       $name=$_POST['name'];
       $description=$_POST['description'];
+      $category=$_POST['category'];
       $price=$_POST['price'];
       $content=$_POST['content'];
-      $sql="
-      INSERT INTO `product` ( `name`, `img`,  `description`, `price` `content`) 
-      VALUES  ('{$name}','{$img}','{$description}', '{$price}', '{$content}')";
-        if(mysqli_query($conn, $sql))
-            message('Thành Công!','product');
-        else
-            message('Thất bại!','product');
+
+      $sql_category = "SELECT id FROM category WHERE name = ?";
+      $stmt = mysqli_prepare($conn, $sql_category);
+
+      if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "s", $category);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $idcategory);
+        mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt);
+        if (!empty($idcategory)) {
+            $sql="
+            INSERT INTO `product` (`idcategory`, `name`, `img`,  `description`, `price` `content`) 
+            VALUES  ('{$idcategory}', '{$name}','{$img}','{$description}', '{$price}', '{$content}')";
+            if(mysqli_query($conn, $sql))
+                message('Thành Công!','product');
+            else
+                message('Thất bại!','product');
+            }
+        }
     }
     else
     {
@@ -31,10 +45,13 @@ function add()
           <label for="name">Image</label>
           <input class="form-control" name="img"  type="file" />
       </p>
-     
       <p>
           <label for="price">Price</label>
           <input class="form-control" name="price" type="text" value="" />
+      </p>
+      <p>
+          <label for="category">Category</label>
+          <input class="form-control" name="category" type="text" value="" />
       </p>
       <p>
           <label for="description">Description</label>
